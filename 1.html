@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        let promise = new Promise(function (resolve, reject) {
+
+            if (true) {
+                resolve();
+            }
+            else {
+                reject();
+            }
+
+        });
+
+        // then function is used to invoke the promise
+        promise.then(function (success) {
+            console.log(success);
+        }).catch(function (msg) {
+            console.log(msg);
+        });
+    </script>
+
+
+
+
+    let promise = new Promise(function (resolve, reject) {
+    let req = new XMLHttpRequest();
+    req.open('GET', "https://jsonplaceholder.typicode.com/todos/");
+    req.onload = function () {
+    // 200 is the http status code -> 200 means receied data/ req is successful
+    if (req.status == 200) {
+    resolve(req.response);
+    }
+    else {
+    reject("Error in the application");
+    }
+    };
+    req.send();
+    });
+
+
+    // then function is used to invoke the promise
+    function getData() {
+    promise.then(function (dd) {
+    displayAll(dd);
+    }).catch(function (msg) {
+    console.log(msg);
+    });
+    }
+
+    var data = "<table border='1'>
+        <tr><th>User Id</th><th>Id</th><th>Title</th><th>Completed</th></tr>";
+        function displayAll(val) {
+        var list = JSON.parse(val);
+        for (var i = 0; i < list.length; i++) {
+        data += "
+        <tr>
+            <td>" + list[i].userId + "</td>
+            <td>" + list[i].id + "</td>
+            <td>" + list[i].title + "</td>
+            <td>
+                " + list[i].completed
+                + "
+            </td>
+        </tr>";
+
+        }
+        data += "
+    </table>";
+    document.getElementById("d1").innerHTML = data;
+    }
+
+
+    <input type="button" value="Get All Data" onclick="getData()" /><br />
+    Enter Id <input type="text" id="t1" />
+    <input type="button" value="Search" onclick="searchData()" />
+    <br />
+    <div id="d1"></div>
+
+</body>
+</html>
