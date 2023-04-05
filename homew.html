@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>My HTML Page</title>
+
+</head>
+<body>
+    <a href="HTMLPage3.html">Login</a> <br />
+    Enter Email :<input type="email" id="mail" />
+    <input type="button" value="Save" onclick="saveData()" />
+    <input type="button" value="Read" onclick="readData()" />
+    <input type="button" value="Delete" onclick="removeData()" />
+    <br/>
+    Enter Password :<input type="number" id="no" />
+    <input type="button" value="Save" onclick="saveData()" />
+    <input type="button" value="Read" onclick="readData()" />
+    <input type="button" value="Delete" onclick="removeData()" />
+    <script>
+
+        function saveData() {
+            var nm = document.getElementById("mail").value;
+            if (sessionStorage) {
+                sessionStorage.setItem("username", nm);
+                alert('Success');
+            }
+            else {
+                alert('localStorage not supported');
+            }
+        }
+
+        function readData() {
+            if (sessionStorage) {
+                document.getElementById("mail").value = sessionStorage.getItem("username");
+            }
+        }
+
+        function removeData() {
+            if (sessionStorage) {
+                sessionStorage.clear();
+            }
+        }
+
+
+        function saveData() {
+            var np = document.getElementById("no").value;
+            if (sessionStorage) {
+                sessionStorage.setItem("userpass", np);
+                alert('Success');
+            }
+            else {
+                alert('localStorage not supported');
+            }
+        }
+
+        function readData() {
+            if (sessionStorage) {
+                document.getElementById("no").value = sessionStorage.getItem("userpass");
+            }
+        }
+
+        function removeData() {
+            if (sessionStorage) {
+                sessionStorage.clear();
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+

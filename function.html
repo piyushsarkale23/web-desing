@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Enter a number:-
+    <input type="number" id="num1" />
+    <br />
+    <br />
+    Enter a number:-
+    <input type="number" id="num2" />
+    <br />
+    <br />
+    result
+    <input type="number" id="num3" />
+    <br />
+    <br />
+    <input type="button" value="add" oneclick="add()" />
+    <input type="button" value="sub" oneclick="sub()" />
+    <input type="button" value="mul" oneclick="mul()" />
+    <input type="button" value="div" oneclick="div()" />
+    This is a text
+    <input type="button" value="apply css"/>
+    
+    <script>
+
+            function add() {
+                var n1 = document.getElementById("num1").value;
+                var n2 = document.getElementById("num2").value;
+                var sum = parseInt(n1) + parseInt(n2);
+                document.getElementById("num3").value = sum;
+        }
+        function sub() {
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var sum = parseInt(n1) - parseInt(n2);
+            document.getElementById("num3").value = sum;
+        }
+        function div() {
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var sum = parseInt(n1) / parseInt(n2);
+            document.getElementById("num3").value = sum;
+        }
+        function mul(){
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var sum = parseInt(n1) * parseInt(n2);
+            document.getElementById("num3").value = sum;
+        }
+        
+       
+        var names = ["Amol", "Ajay", "Atul", "Bull"];
+        names.push("Piyush");
+        names.unshift("Lola");
+
+        var data = "<ol>"
+        for (var i = 0; i < names.length; i++) {
+            data += "<li>" + names[i] + "</li>"
+            document.writeln(names[i]);
+        }
+        data += "</ol>";
+        console.log(data);
+        document.getElementById("d1").innerHTML = data;
+    
+        document.writeln(names)
+    </script>
+</body>
+</html>

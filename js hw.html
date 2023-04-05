@@ -1,0 +1,90 @@
+﻿<html>
+<head>
+    <title> Password Matching Assignment </title>
+    2. Create an array of 5 cities. Add two cities in an array at 1st & 2nd index. sort the city  & display list in ordered list:----
+</head>
+<script>
+    function matchPassword() {
+        var password = document.getElementById("txtpass").value;
+        var confirmPassword = document.getElementById("txtpass2").value;
+        if (password == "" && confirmPassword=="") {
+            document.getElementById("message").innerHTML = "**Fill the password please!";
+            return false;
+        }
+       else  if (password != confirmPassword ) {
+            alert("Passwords do not match.");
+           
+        }
+        else if (password === confirmPassword)
+        {
+            alert("Password created successfully");
+        }
+      
+        else {
+
+            alert("please enter valid password");
+          
+        }
+    }
+
+        var cities = ["Pune", "Mumbai", "Nashik", "Nagpur", "satara"];
+        cities.unshift("Delhi");
+        cities.unshift("Chennai");
+        cities.sort();
+         var data = "<ol>";
+    for (var i = 0; i < cities.length; i++) {
+        console.log(cities[i]);
+        document.writeln(cities[i]);
+
+             data += "<li>" + cities[i] + "</li>";
+         }
+         
+ 
+
+    const numbers = [1, 2, 3, 4, 5];
+
+    const multipliedNumbers = numbers.map(num => num * 5);
+
+    
+    const ul = document.createElement('ul');
+
+   
+    multipliedNumbers.forEach(num => {
+        const li = document.createElement('li');
+        li.textContent = num;
+        ul.appendChild(li);
+    });
+    
+    // add the unordered list to the HTML body
+    document.body.appendChild(ul);
+
+
+</script>
+
+<body>
+  
+    <center>
+        1. Create two fields password & confirm password in HTML,
+        validate that user has entered same password & confirm password using javascript
+        <form>
+            <h1 style="color:springgreen">Create new password</h1>
+            <h3> Confirm password Example </h3>
+
+            Enter Password
+            <input type="password" id="txtpass"> <br><br>
+
+
+            Confirm Password
+            <input type="password" id="txtpass2"> <br><br>
+
+            <button type="submit" onclick="matchPassword()">Submit</button>
+
+
+            <button type="reset" value="Reset">Reset</button>
+        </form>
+    </center>
+    <br/>
+
+
+</body>
+</html>
